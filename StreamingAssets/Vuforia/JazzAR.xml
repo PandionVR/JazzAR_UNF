@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+  <Tracking>
+    <ImageTarget name="download2" size="0.500000 0.500000" />
+    <ImageTarget name="triggeralpert_glennmiller" size="1.000000 0.798641" />
+    <ImageTarget name="ralphsutton" size="1.000000 0.792354" />
+    <ImageTarget name="marianmcpartland" size="1.000000 1.442042" />
+    <ImageTarget name="jimmymcpartland" size="1.000000 0.803445" />
+    <ImageTarget name="georgegershwin" size="1.000000 0.616094" />
+    <ImageTarget name="fatswaller" size="1.000000 1.226164" />
+    <ImageTarget name="eddiehiggins" size="1.000000 1.218000" />
+    <ImageTarget name="dukeellington" size="1.000000 1.034755" />
+    <ImageTarget name="buckypizzarelli" size="1.000000 0.759891" />
+    <ImageTarget name="burbeckdave" size="1.000000 1.420350" />
+  </Tracking>
+</QCARConfig>
