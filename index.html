@@ -19,10 +19,12 @@
 	  
   const {renderer, cssRenderer, scene, cssScene, camera} = mindarThree;
   
+  const start = async() => {
   await mindarThree.start();
     renderer.setAnimationLoop(() => {
       cssRenderer.render(cssScene, camera);
     });
+	}
 
     const artist1Obj = new CSS3DObject(document.querySelector("#pizzarelli"));
     const artist1Css = mindarThree.addCSSAnchor(0);
