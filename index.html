@@ -10,13 +10,8 @@
 	sceneEl.addEventListener('loaded', function () {
 	  arSystem = sceneEl.systems["mindar-image-system"];
 	});
-	const exampleTarget = document.querySelector('#example-target');
-	const examplePlane = document.querySelector('#example-plane');
-	const startButton = document.querySelector("#example-start-button");
-	const stopButton = document.querySelector("#example-stop-button");
-	const pauseButton = document.querySelector("#example-pause-button");
-	const pauseKeepVideoButton = document.querySelector("#example-pause-keep-video-button");
-	const unpauseButton = document.querySelector("#example-unpause-button");
+	
+
 
 	// arReady event triggered when ready
 	sceneEl.addEventListener("arReady", (event) => {
@@ -26,18 +21,111 @@
 	sceneEl.addEventListener("arError", (event) => {
 	  // console.log("MindAR failed to start")
 	});
+	
+	
+	const pizzarelli = document.querySelector('#pizzarelli');
+	const brubeck = document.querySelector('#brubeck');
+	const ellington = document.querySelector('#ellington');
+	const higgins = document.querySelector('#higgins');
+	const waller = document.querySelector('#waller');
+	const gershwin = document.querySelector('#gershwin');
+	const jimmyMcPartland = document.querySelector('#jimmyMcPartland');
+	const marianMcPartland = document.querySelector('#marianMcPartland');
+	const sutton = document.querySelector('#sutton');
+	const alpertMiller = document.querySelector('#alpertMiller');
+	
 	// detect target found
-	exampleTarget.addEventListener("targetFound", event => {
-	  console.log("target found");
+	pizzarelli.addEventListener("targetFound", event => {
+	  console.log("pizzarelli found");
 	});
 	// detect target lost
-	exampleTarget.addEventListener("targetLost", event => {
-	  console.log("target lost");
+	pizzarelli.addEventListener("targetLost", event => {
+	  console.log("pizzarelli lost");
 	});
-	// detect click event
-	examplePlane.addEventListener("click", event => {
-	  console.log("plane click");
+	
+	// detect target found
+	brubeck.addEventListener("targetFound", event => {
+	  console.log("brubeck found");
 	});
+	// detect target lost
+	brubeck.addEventListener("targetLost", event => {
+	  console.log("brubeck lost");
+	});
+	
+	// detect target found
+	ellington.addEventListener("targetFound", event => {
+	  console.log("ellington found");
+	});
+	// detect target lost
+	ellington.addEventListener("targetLost", event => {
+	  console.log("ellington lost");
+	});
+	
+	// detect target found
+	higgins.addEventListener("targetFound", event => {
+	  console.log("higgins found");
+	});
+	// detect target lost
+	higgins.addEventListener("targetLost", event => {
+	  console.log("higgins lost");
+	});
+	
+	// detect target found
+	waller.addEventListener("targetFound", event => {
+	  console.log("waller found");
+	});
+	// detect target lost
+	waller.addEventListener("targetLost", event => {
+	  console.log("waller lost");
+	});
+	
+	// detect target found
+	gershwin.addEventListener("targetFound", event => {
+	  console.log("gershwin found");
+	});
+	// detect target lost
+	gershwin.addEventListener("targetLost", event => {
+	  console.log("gershwin lost");
+	});
+	
+	// detect target found
+	jimmyMcPartland.addEventListener("targetFound", event => {
+	  console.log("jimmyMcPartland found");
+	});
+	// detect target lost
+	jimmyMcPartland.addEventListener("targetLost", event => {
+	  console.log("jimmyMcPartland lost");
+	});
+	
+	// detect target found
+	marianMcPartland.addEventListener("targetFound", event => {
+	  console.log("marianMcPartland found");
+	});
+	// detect target lost
+	marianMcPartland.addEventListener("targetLost", event => {
+	  console.log("marianMcPartland lost");
+	});
+	
+	// detect target found
+	sutton.addEventListener("targetFound", event => {
+	  console.log("sutton found");
+	});
+	// detect target lost
+	sutton.addEventListener("targetLost", event => {
+	  console.log("sutton lost");
+	});
+	
+	// detect target found
+	alpertMiller.addEventListener("targetFound", event => {
+	  console.log("alpertMiller found");
+	});
+	// detect target lost
+	alpertMiller.addEventListener("targetLost", event => {
+	  console.log("alpertMiller lost");
+	});
+	
+	
+	
       });
 	  
 	  
@@ -55,9 +143,47 @@
     <a-scene mindar-image="imageTargetSrc: ./targets.mind; autoStart: true;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="near: 10; far: 10000; objects: .clickable"></a-camera>
 
-      <a-entity id="example-target" mindar-image-target="targetIndex: 0">
-		<a-plane id="example-plane" class="clickable" color="blue" opaciy="0.5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+      <a-entity id="pizzarelli" mindar-image-target="targetIndex: 0">
+		<iframe src="https://player.vimeo.com/video/930391267?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Bucky Pizzarelli"></iframe>
       </a-entity>
+	  
+	  <a-entity id="brubeck" mindar-image-target="targetIndex: 1">
+		<iframe src="https://player.vimeo.com/video/930396810?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Bucky Pizzarelli"></iframe>
+      </a-entity>
+	  
+	  <a-entity id="ellington" mindar-image-target="targetIndex: 2">
+		<iframe src="https://player.vimeo.com/video/930399121?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Bucky Pizzarelli"></iframe>
+      </a-entity>
+	  
+	  <a-entity id="higgins" mindar-image-target="targetIndex: 3">
+		<iframe src="https://player.vimeo.com/video/930402075?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Bucky Pizzarelli"></iframe>
+      </a-entity>
+	  
+	  <a-entity id="waller" mindar-image-target="targetIndex: 4">
+		<iframe src="https://player.vimeo.com/video/930406526?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Bucky Pizzarelli"></iframe>
+      </a-entity>
+	  
+	  <a-entity id="gershwin" mindar-image-target="targetIndex: 5">
+		<iframe src="https://player.vimeo.com/video/931051502?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Bucky Pizzarelli"></iframe>
+      </a-entity>
+	  
+	  <a-entity id="jimmyMcPartland" mindar-image-target="targetIndex: 6">
+		<iframe src="https://player.vimeo.com/video/931055747?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Bucky Pizzarelli"></iframe>
+      </a-entity>
+	  
+	  <a-entity id="marianMcPartland" mindar-image-target="targetIndex: 7">
+		<iframe src="https://player.vimeo.com/video/931059460?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Bucky Pizzarelli"></iframe>
+      </a-entity>
+	  
+	  <a-entity id="sutton" mindar-image-target="targetIndex: 8">
+		<iframe src="https://player.vimeo.com/video/931063850?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Bucky Pizzarelli"></iframe>
+      </a-entity>
+	  
+	  <a-entity id="alpertMiller" mindar-image-target="targetIndex: 9">
+		<iframe src="https://player.vimeo.com/video/931066670?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Bucky Pizzarelli"></iframe>
+      </a-entity>
+	 
+	  
     </a-scene>
   </body>
 </html>
