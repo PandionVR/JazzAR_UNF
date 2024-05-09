@@ -5,7 +5,9 @@
       <script src="./libs/mindar/mindar-image-three.prod.js"></script>
       <!--<script src="./main.js" type="module"></script>-->
 	  <script type="module">
-	  console.log("Bruv");
+	  
+	  console.log("Dude");
+	  
 	  import { CSS3DObject } from './libs/three.js-r132/examples/jsm/renderers/CSS3DRenderer.js';
 	  const mindarThree = new window.MINDAR.IMAGE.MindARThree({
       container: document.body,
@@ -59,8 +61,6 @@
     const artist10Css = mindarThree.addCSSAnchor(9);
     artist10Css.group.add(artist10Obj);
 	
-	console.log("Scooby");
-	
 	const pizzarelliLogic = document.querySelector("#pizzarelli");
 	pizzarelliLogic.addEventListener("targetFound", event => {
 		console.log("Pizzarelli found");
@@ -71,8 +71,6 @@
 		console.log("Brubeck found");
 	});
   
-
-  start();
 	  </script>
   
       <style>
