@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	
 	
 	const pizzarelliLogic = document.querySelector("#pizzarelli");
-	pizzarelliLogic.addEventListener("targetFound", event => {
+	pizzarelliLogic.addEventListener("targetFound", (event) => {
 		console.log("Pizzarelli found");
 	});
 
