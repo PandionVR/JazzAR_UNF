@@ -9,33 +9,45 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     const {renderer, cssRenderer, scene, cssScene, camera} = mindarThree;
 
-    const obj = new CSS3DObject(document.querySelector("#pizzarelli"));
-    const cssAnchor = mindarThree.addCSSAnchor(0);
-    cssAnchor.group.add(obj);
-
-    const obj2 = new CSS3DObject(document.querySelector("#ar-div2"));
-const cssAnchor2 = mindarThree.addCSSAnchor(1);
-cssAnchor2.group.add(obj2);
-
-const obj3 = new CSS3DObject(document.querySelector("#ar-div3"));
-const cssAnchor3 = mindarThree.addCSSAnchor(2);
-cssAnchor3.group.add(obj3);
-
-const obj4 = new CSS3DObject(document.querySelector("#ar-div4"));
-const cssAnchor4 = mindarThree.addCSSAnchor(3);
-cssAnchor4.group.add(obj4);
-
-const obj5 = new CSS3DObject(document.querySelector("#ar-div5"));
-const cssAnchor5 = mindarThree.addCSSAnchor(4);
-cssAnchor5.group.add(obj5);
-
-const obj6 = new CSS3DObject(document.querySelector("#ar-div6"));
-const cssAnchor6 = mindarThree.addCSSAnchor(5);
-cssAnchor6.group.add(obj6);
-
-const obj7 = new CSS3DObject(document.querySelector("#ar-div7"));
-const cssAnchor7 = mindarThree.addCSSAnchor(6);
-cssAnchor7.group.add(obj7);
+    const artist1Obj = new CSS3DObject(document.querySelector("#pizzarelli"));
+    const artist1Css = mindarThree.addCSSAnchor(0);
+    artist1Css.group.add(artist1Obj);
+	
+    const artist2Obj = new CSS3DObject(document.querySelector("#brubeck"));
+    const artist2Css = mindarThree.addCSSAnchor(1);
+    artist2Css.group.add(artist2Obj);
+	
+    const artist3Obj = new CSS3DObject(document.querySelector("#ellington"));
+    const artist3Css = mindarThree.addCSSAnchor(2);
+    artist3Css.group.add(artist3Obj);
+	
+    const artist4Obj = new CSS3DObject(document.querySelector("#higgins"));
+    const artist4Css = mindarThree.addCSSAnchor(3);
+    artist4Css.group.add(artist4Obj);
+	
+    const artist5Obj = new CSS3DObject(document.querySelector("#waller"));
+    const artist5Css = mindarThree.addCSSAnchor(4);
+    artist5Css.group.add(artist5Obj);
+	
+    const artist6Obj = new CSS3DObject(document.querySelector("#gershwin"));
+    const artist6Css = mindarThree.addCSSAnchor(5);
+    artist6Css.group.add(artist6Obj);
+	
+    const artist7Obj = new CSS3DObject(document.querySelector("#jimmyMcPartland"));
+    const artist7Css = mindarThree.addCSSAnchor(6);
+    artist7Css.group.add(artist7Obj);
+	
+    const artist8Obj = new CSS3DObject(document.querySelector("#marianMcPartland"));
+    const artist8Css = mindarThree.addCSSAnchor(7);
+    artist8Css.group.add(artist8Obj);
+	
+    const artist9Obj = new CSS3DObject(document.querySelector("#sutton"));
+    const artist9Css = mindarThree.addCSSAnchor(8);
+    artist9Css.group.add(artist9Obj);
+	
+    const artist10Obj = new CSS3DObject(document.querySelector("#alpertGlenn"));
+    const artist10Css = mindarThree.addCSSAnchor(9);
+    artist10Css.group.add(artist10Obj);
 
     await mindarThree.start();
     renderer.setAnimationLoop(() => {
