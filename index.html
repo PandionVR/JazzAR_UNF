@@ -6,7 +6,14 @@
       <!--<script src="./main.js" type="module"></script>-->
 	  <script type="module">
 	  
-	  console.log("Ehhh");
+	  console.log("bruhvs");
+	  
+		const sceneEl = document.querySelector('a-scene');
+		let arSystem;
+		sceneEl.addEventListener('loaded', function () {
+			arSystem = sceneEl.systems["mindar-image-system"];
+			console.log("skippp");
+		});
 	  
 	  import { CSS3DObject } from './libs/three.js-r132/examples/jsm/renderers/CSS3DRenderer.js';
 	  const mindarThree = new window.MINDAR.IMAGE.MindARThree({
