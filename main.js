@@ -6,8 +6,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const mindarThree = new window.MINDAR.IMAGE.MindARThree({
       container: document.body,
       imageTargetSrc: './targets.mind',
+    });	
+
+    await mindarThree.start();
+    renderer.setAnimationLoop(() => {
+      cssRenderer.render(cssScene, camera);
     });
-    const {renderer, cssRenderer, scene, cssScene, camera} = mindarThree;
+  }
+  
+  
+  const {renderer, cssRenderer, scene, cssScene, camera} = mindarThree;
 
     const artist1Obj = new CSS3DObject(document.querySelector("#pizzarelli"));
     const artist1Css = mindarThree.addCSSAnchor(0);
@@ -49,19 +57,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const artist10Css = mindarThree.addCSSAnchor(9);
     artist10Css.group.add(artist10Obj);
 	
-	console.log("Bruh");
+	console.log("Scooby");
 	
 	const pizzarelliLogic = document.querySelector("#pizzarelli");
-	pizzarelliLogic.addEventListener("targetFound", (event) => {
+	pizzarelliLogic.addEventListener("targetFound", event => {
 		console.log("Pizzarelli found");
 	});
-
-    await mindarThree.start();
-    renderer.setAnimationLoop(() => {
-      cssRenderer.render(cssScene, camera);
-    });
-  }
-
+	
+	const brubeckLogic = document.querySelector("#brubeck");
+	brubeckLogic.addEventListener("targetFound", event => {
+		console.log("Brubeck found");
+	});
   
 
   start();
