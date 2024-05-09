@@ -37,12 +37,17 @@
 	// detect target found
 	pizzarelli.addEventListener("targetFound", event => {
 	  console.log("pizzarelli found");
-	  pizzarelli.object3D.visible = true;
+	  //pizzarelli.object3D.visible = true;
+	  
+	  document.getElementById("pizzarelliFrame").style = "display: block";
+	  
 	});
 	// detect target lost
 	pizzarelli.addEventListener("targetLost", event => {
 	  console.log("pizzarelli lost");
-	  pizzarelli.object3D.visible = false;
+	  //pizzarelli.object3D.visible = false;
+	  
+	  document.getElementById("pizzarelliFrame").style = "display: none";
 	});
 	/*
 	// detect target found
@@ -146,7 +151,7 @@
       <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="near: 10; far: 10000; objects: .clickable"></a-camera>
 
       <a-entity visible="false" id="pizzarelli" mindar-image-target="targetIndex: 0">
-		<iframe style="display:none" src="https://player.vimeo.com/video/930391267?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Bucky Pizzarelli"></iframe>
+		<iframe id="pizzarelliFrame" style="display:none" src="https://player.vimeo.com/video/930391267?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Bucky Pizzarelli"></iframe>
       </a-entity>
 	  
 	  <!--<a-entity visible="false" id="brubeck" mindar-image-target="targetIndex: 1">
