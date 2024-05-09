@@ -48,6 +48,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const artist10Obj = new CSS3DObject(document.querySelector("#alpertGlenn"));
     const artist10Css = mindarThree.addCSSAnchor(9);
     artist10Css.group.add(artist10Obj);
+	
+	
+	const pizzarelliLogic = document.querySelector("#pizzarelli");
+	pizzarelliLogic.addEventListener("targetFound", event => {
+		console.log("Pizzarelli found");
+	});
 
     await mindarThree.start();
     renderer.setAnimationLoop(() => {
