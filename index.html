@@ -17,22 +17,7 @@
 	const pauseButton = document.querySelector("#example-pause-button");
 	const pauseKeepVideoButton = document.querySelector("#example-pause-keep-video-button");
 	const unpauseButton = document.querySelector("#example-unpause-button");
-	startButton.addEventListener('click', () => {
-	  console.log("start");
-	  arSystem.start(); // start AR 
-	});
-	stopButton.addEventListener('click', () => {
-	  arSystem.stop(); // stop AR 
-	});
-	pauseButton.addEventListener('click', () => {
-	  arSystem.pause(); // pause AR, pause video
-	});
-	pauseKeepVideoButton.addEventListener('click', () => {
-	  arSystem.pause(true); // pause AR, keep video
-	});
-	unpauseButton.addEventListener('click', () => {
-	  arSystem.unpause(); // unpause AR and video
-	});
+
 	// arReady event triggered when ready
 	sceneEl.addEventListener("arReady", (event) => {
 	  // console.log("MindAR is ready")
