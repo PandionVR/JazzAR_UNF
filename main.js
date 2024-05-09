@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const artist10Css = mindarThree.addCSSAnchor(9);
     artist10Css.group.add(artist10Obj);
 	
+	console.log("Bruh");
 	
 	const pizzarelliLogic = document.querySelector("#pizzarelli");
 	pizzarelliLogic.addEventListener("targetFound", (event) => {
