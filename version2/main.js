@@ -7,15 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
       container: document.body,
       imageTargetSrc: './targets.mind',
     });	
-
-    await mindarThree.start();
-    renderer.setAnimationLoop(() => {
-      cssRenderer.render(cssScene, camera);
-    });
-  }
-  
-  
-  const {renderer, cssRenderer, scene, cssScene, camera} = mindarThree;
+	
+	const {renderer, cssRenderer, scene, cssScene, camera} = mindarThree;
 
     const artist1Obj = new CSS3DObject(document.querySelector("#pizzarelli"));
     const artist1Css = mindarThree.addCSSAnchor(0);
@@ -56,6 +49,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const artist10Obj = new CSS3DObject(document.querySelector("#alpertGlenn"));
     const artist10Css = mindarThree.addCSSAnchor(9);
     artist10Css.group.add(artist10Obj);
+
+    await mindarThree.start();
+    renderer.setAnimationLoop(() => {
+      cssRenderer.render(cssScene, camera);
+    });
+  }
+  
+  
+  
 
   start();
 });
