@@ -5,13 +5,13 @@
       <script src="./libs/mindar/mindar-image-three.prod.js"></script>
       <!--<script src="./main.js" type="module"></script>-->
 	  <script type="module">
-	  
+	  import { CSS3DObject } from './libs/three.js-r132/examples/jsm/renderers/CSS3DRenderer.js';
 	  console.log("yooo");
 	  document.addEventListener("DOMContentLoaded", function() {
 		const sceneEl = document.querySelector("a-scene");
 		let arSystem = sceneEl.systems["mindar-image-system"];
 		
-	  import { CSS3DObject } from './libs/three.js-r132/examples/jsm/renderers/CSS3DRenderer.js';
+	  
 	  const mindarThree = new window.MINDAR.IMAGE.MindARThree({
       container: document.body,
       imageTargetSrc: './targets.mind',
