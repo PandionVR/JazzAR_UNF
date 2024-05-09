@@ -1,165 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <script src="./libs/mindar/mindar-image-three.prod.js"></script>
-      <!--<script src="./main.js" type="module"></script>-->
-	  <script type="module">
-	  import { CSS3DObject } from './libs/three.js-r132/examples/jsm/renderers/CSS3DRenderer.js';
-	  console.log("aaa");
-	  document.addEventListener("DOMContentLoaded", function() {
-		const sceneEl = document.querySelector("a-scene");
-		let arSystem = sceneEl.systems["mindar-image-system"];
-		
-	  
-	  const mindarThree = new window.MINDAR.IMAGE.MindARThree({
-      container: document.body,
-      imageTargetSrc: './targets.mind',
-    });
-	  
-  const {renderer, cssRenderer, scene, cssScene, camera} = mindarThree;
-  
-  const start = async() => {
-  await mindarThree.start();
-    renderer.setAnimationLoop(() => {
-      cssRenderer.render(cssScene, camera);
-    });
-	}
-
-    const artist1Obj = new CSS3DObject(document.querySelector("#pizzarelli"));
-    const artist1Css = mindarThree.addCSSAnchor(0);
-    artist1Css.group.add(artist1Obj);
-	
-    const artist2Obj = new CSS3DObject(document.querySelector("#brubeck"));
-    const artist2Css = mindarThree.addCSSAnchor(1);
-    artist2Css.group.add(artist2Obj);
-	
-    const artist3Obj = new CSS3DObject(document.querySelector("#ellington"));
-    const artist3Css = mindarThree.addCSSAnchor(2);
-    artist3Css.group.add(artist3Obj);
-	
-    const artist4Obj = new CSS3DObject(document.querySelector("#higgins"));
-    const artist4Css = mindarThree.addCSSAnchor(3);
-    artist4Css.group.add(artist4Obj);
-	
-    const artist5Obj = new CSS3DObject(document.querySelector("#waller"));
-    const artist5Css = mindarThree.addCSSAnchor(4);
-    artist5Css.group.add(artist5Obj);
-	
-    const artist6Obj = new CSS3DObject(document.querySelector("#gershwin"));
-    const artist6Css = mindarThree.addCSSAnchor(5);
-    artist6Css.group.add(artist6Obj);
-	
-    const artist7Obj = new CSS3DObject(document.querySelector("#jimmyMcPartland"));
-    const artist7Css = mindarThree.addCSSAnchor(6);
-    artist7Css.group.add(artist7Obj);
-	
-    const artist8Obj = new CSS3DObject(document.querySelector("#marianMcPartland"));
-    const artist8Css = mindarThree.addCSSAnchor(7);
-    artist8Css.group.add(artist8Obj);
-	
-    const artist9Obj = new CSS3DObject(document.querySelector("#sutton"));
-    const artist9Css = mindarThree.addCSSAnchor(8);
-    artist9Css.group.add(artist9Obj);
-	
-    const artist10Obj = new CSS3DObject(document.querySelector("#alpertGlenn"));
-    const artist10Css = mindarThree.addCSSAnchor(9);
-    artist10Css.group.add(artist10Obj);
-	
-	const pizzarelliLogic = document.querySelector("#pizzarelli");
-	pizzarelliLogic.addEventListener("targetFound", event => {
-		console.log("Pizzarelli found");
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+	const sceneEl = document.querySelector('a-scene');
+	let arSystem;
+	sceneEl.addEventListener('loaded', function () {
+	  arSystem = sceneEl.systems["mindar-image-system"];
 	});
-	
-	const brubeckLogic = document.querySelector("#brubeck");
-	brubeckLogic.addEventListener("targetFound", event => {
-		console.log("Brubeck found");
+	const exampleTarget = document.querySelector('#example-target');
+	const examplePlane = document.querySelector('#example-plane');
+	const startButton = document.querySelector("#example-start-button");
+	const stopButton = document.querySelector("#example-stop-button");
+	const pauseButton = document.querySelector("#example-pause-button");
+	const pauseKeepVideoButton = document.querySelector("#example-pause-keep-video-button");
+	const unpauseButton = document.querySelector("#example-unpause-button");
+	startButton.addEventListener('click', () => {
+	  console.log("start");
+	  arSystem.start(); // start AR 
 	});
-  });
-	  </script>
-  
-      <style>
-        html, body {position: relative; margin: 0; width: 100%; height: 100%; overflow: hidden}
-        #pizzarelli {
-			visibility: hidden;
-        }
-		#brubeck {
-			visibility: hidden;
-        }
-        #ellington {
-			visibility: hidden;
-        }
-        #higgins {
-			visibility: hidden;
-        }
-        #waller {
-			visibility: hidden;
-        }
-        #gershwin {
-			visibility: hidden;
-        }
-        #jimmyMcPartland {
-			visibility: hidden;
-        }
-		#marianMcPartland {
-			visibility: hidden;
-        }
-		#sutton {
-			visibility: hidden;
-        }
-		#alpertGlenn {
-			visibility: hidden;
-        }
-        
-      </style>
-  
-    </head>
-    <body>
+	stopButton.addEventListener('click', () => {
+	  arSystem.stop(); // stop AR 
+	});
+	pauseButton.addEventListener('click', () => {
+	  arSystem.pause(); // pause AR, pause video
+	});
+	pauseKeepVideoButton.addEventListener('click', () => {
+	  arSystem.pause(true); // pause AR, keep video
+	});
+	unpauseButton.addEventListener('click', () => {
+	  arSystem.unpause(); // unpause AR and video
+	});
+	// arReady event triggered when ready
+	sceneEl.addEventListener("arReady", (event) => {
+	  // console.log("MindAR is ready")
+	});
+	// arError event triggered when something went wrong. Mostly browser compatbility issue
+	sceneEl.addEventListener("arError", (event) => {
+	  // console.log("MindAR failed to start")
+	});
+	// detect target found
+	exampleTarget.addEventListener("targetFound", event => {
+	  console.log("target found");
+	});
+	// detect target lost
+	exampleTarget.addEventListener("targetLost", event => {
+	  console.log("target lost");
+	});
+	// detect click event
+	examplePlane.addEventListener("click", event => {
+	  console.log("plane click");
+	});
+      });
+    </script>
+  </head>
+  <body>
+    <div style="position: absolute; z-index: 1000">
+      <button id="example-start-button">Start</button>
+      <button id="example-pause-button">Pause</button>
+      <button id="example-pause-keep-video-button">Pause (keep video)</button>
+      <button id="example-unpause-button">UnPause</button>
+      <button id="example-stop-button">Stop</button>
+    </div>
+    <a-scene mindar-image="imageTargetSrc: https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/card-example/card.mind; autoStart: false;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+      <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="near: 10; far: 10000; objects: .clickable"></a-camera>
 
-      <!--<div id="pizzarelli">-->
-	  <a-scene mindar-image="imageTargetSrc: ./targets.mind; autoStart: false;">
-		<a-entity id="pizzarelli" mindar-image-target="targetIndex: 0">
-		<iframe src="https://player.vimeo.com/video/930391267?title=0&amp;byline=0&amp;portrait=0&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1920" height="1080" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Bucky_Pizzarelli"></iframe> 
-		</a-entity>
-	  </a-scene>
-        
-      <!--</div>-->
-
-      <div id="brubeck">
-        <iframe src="https://player.vimeo.com/video/930396810?title=0&amp;byline=0&amp;portrait=0&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1920" height="1080" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Dave_Brubeck"></iframe>
-      </div>
-
-      <div id="ellington">
-        <iframe src="https://player.vimeo.com/video/930399121?title=0&amp;byline=0&amp;portrait=0&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1920" height="1080" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Duke_Ellington"></iframe>
-      </div>
-
-      <div id="higgins">
-        <iframe src="https://player.vimeo.com/video/930402075?title=0&amp;byline=0&amp;portrait=0&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1920" height="1080" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Eddie_Higgins"></iframe>
-      </div>
-
-      <div id="waller">
-        <iframe src="https://player.vimeo.com/video/930406526?title=0&amp;byline=0&amp;portrait=0&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1920" height="1080" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Fats_Waller"></iframe>
-      </div>
-
-      <div id="gershwin">
-        <iframe src="https://player.vimeo.com/video/931051502?title=0&amp;byline=0&amp;portrait=0&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1920" height="1080" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="George_Gershwin"></iframe>
-      </div>
-
-      <div id="jimmyMcPartland">
-        <iframe src="https://player.vimeo.com/video/931055747?title=0&amp;byline=0&amp;portrait=0&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1920" height="1080" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Jimmy_McPartland"></iframe>
-      </div>
-	  
-	  <div id="marianMcPartland">
-        <iframe src="https://player.vimeo.com/video/931059460?title=0&amp;byline=0&amp;portrait=0&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1920" height="1080" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Marian_McPartland"></iframe>
-      </div>
-	  
-	  <div id="sutton">
-        <iframe src="https://player.vimeo.com/video/931063850?title=0&amp;byline=0&amp;portrait=0&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1920" height="1080" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Ralph_Sutton"></iframe>
-      </div>
-	  
-	  <div id="alpertGlenn">
-        <iframe src="https://player.vimeo.com/video/931066670?title=0&amp;byline=0&amp;portrait=0&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1920" height="1080" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="TriggerAlpert_GlennMiller"></iframe>
-      </div>
-
-    </body>
-  </html>
+      <a-entity id="example-target" mindar-image-target="targetIndex: 0">
+	<a-plane id="example-plane" class="clickable" color="blue" opaciy="0.5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
